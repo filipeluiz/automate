@@ -2,12 +2,17 @@
 
 import React from 'react'
 import Layout from '../components/layout'
+import Tablet from '../components/tablet'
 
 const TesteCognitivo = () => {
   return (
     <Layout 
       titleHead='Teste Cognitivo'
-      Contents={<h1>Teste Cognitivo</h1>}
+      Contents={
+        <>
+          <Tablet />
+        </>
+      }
     />
   )
 }

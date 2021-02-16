@@ -18,9 +18,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import Copyright from './Copyright'
-import useStyles from './useStyles'
+import useStyles from '../helps/useStyles'
 
-export default function Layout({titleHead, Contents}) {
+const Layout = ({titleHead, Contents}) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -77,7 +77,7 @@ export default function Layout({titleHead, Contents}) {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <Paper>
+              <Paper className={classes.paper}>
                 {Contents}
               </Paper>
             </Grid>
@@ -90,3 +90,5 @@ export default function Layout({titleHead, Contents}) {
     </div>
   );
 }
+
+export default Layout

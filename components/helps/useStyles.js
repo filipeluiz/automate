@@ -8,6 +8,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
+  rootMargin: {
+    '& > *': {
+      margin: theme.spacing(1),
+    }    
+  },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
   },
@@ -73,13 +78,23 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
   },
   fixedHeight: {
     height: 240,
+  },
+  containerDashboard: {
+    minHeight: 'calc(60vh)',
+    display: 'flex',
+    flexFlow: 'column wrap',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  tableContainer: {
+    width: '100%'
   }
 }));
 

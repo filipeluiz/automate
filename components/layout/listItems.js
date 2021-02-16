@@ -33,11 +33,13 @@ export const mainListItems = (
 export const secondaryListItems = (
   <div>
     <ListSubheader inset>Administração</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <SupervisorAccountIcon />
-      </ListItemIcon>
-      <ListItemText primary="Importar estudantes" />
-    </ListItem>
+    <Link href="/adm/importStudent">
+      <ListItem button>
+        <ListItemIcon>
+          <SupervisorAccountIcon />
+        </ListItemIcon>
+        <ListItemText primary="Importar estudantes" />
+      </ListItem>
+    </Link>
   </div>
 );
