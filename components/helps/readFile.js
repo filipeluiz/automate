@@ -2,7 +2,7 @@
 
 import XLSX from 'xlsx'
 
-const readFile = (file) => {
+const readFile = (file, setState) => {
   if(file != undefined){
     const reader = new FileReader()
     const rABS = !!reader.readAsBinaryString
@@ -11,8 +11,7 @@ const readFile = (file) => {
       const wsname = wb.SheetNames[0]
       const ws = wb.Sheets[wsname]
       const data = XLSX.utils.sheet_to_json(ws)
-      console.log(data)
-      // this.props.setTable(data)
+      setState(data)
     };
     if(rABS) { 
       reader.readAsBinaryString(file)

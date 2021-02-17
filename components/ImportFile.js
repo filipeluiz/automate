@@ -2,16 +2,18 @@
 
 import React from 'react'
 import Fab from '@material-ui/core/Fab'
+import clsx from 'clsx'
 import ArchiveIcon from '@material-ui/icons/Archive'
 import EditIcon from '@material-ui/icons/Edit';
+import SaveIcon from '@material-ui/icons/Save';
 import useStyles from './helps/useStyles'
 
-const ImportFile = ({onChange, editClick}) => {
+const ImportFile = ({onChange, onClick, onClickSave}) => {
   const classes = useStyles()
 
   return (
     <div className={classes.rootMargin}>
-      <label htmlFor="upload-xlsx">
+      {onChange? <label htmlFor="upload-xlsx">
         <input
           style={{ display: "none" }}
           id="upload-xlsx"
@@ -23,12 +25,18 @@ const ImportFile = ({onChange, editClick}) => {
         <Fab size="small" color="primary" aria-label="add" component="span">
           <ArchiveIcon />       
         </Fab>      
-      </label>
-      <label htmlFor="edit">
-        <Fab onClick={editClick} size="small" color="secondary" aria-label="edit">
+      </label> : undefined}
+      {onClick? <label htmlFor="edit">
+        <Fab onClick={onClick} size="small" color="secondary" aria-label="edit">
           <EditIcon />
         </Fab>          
-      </label>
+      </label> : undefined}
+      {onClickSave? <label htmlFor="save">
+        <Fab onClick={onClickSave} size="small" aria-label="save">
+          <SaveIcon />
+        </Fab>          
+      </label> : undefined}      
+
     </div>    
   ) 
 }

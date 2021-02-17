@@ -10,7 +10,10 @@ const Tablet = () => {
   const classes = useStyles()
   return (
     <div className={classes.tableContainer}>
-      <ImportFile onChange={(e) => readFile(e.target.files[0])} />
+      <ImportFile 
+        onChange = {(e) => readFile(e.target.files[0])} 
+        onClick = {() => console.log('editando...')}
+      />
       <Table />
     </div>
   )
