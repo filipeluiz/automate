@@ -7,6 +7,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
 
 export const mainListItems = (
   <div>
@@ -41,5 +42,13 @@ export const secondaryListItems = (
         <ListItemText primary="Importar estudantes" />
       </ListItem>
     </Link>
+    <Link href="/adm/importDiscipline">
+      <ListItem button>
+        <ListItemIcon>
+          <AccountTreeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Importar disciplinas" />
+      </ListItem>
+    </Link>    
   </div>
 );
