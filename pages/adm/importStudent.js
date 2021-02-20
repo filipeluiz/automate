@@ -6,8 +6,14 @@ import ImportFile from '../../components/ImportFile'
 import readFile from '../../components/helps/readFile'
 import { modelStudent } from '../../components/modelDate'
 import ReactJson from 'react-json-view'
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import useStyles from '../../components/helps/useStyles'
 import { db } from '../../components/helps/firebase'
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const importStudent = () => {
   const classes = useStyles()
@@ -18,10 +24,22 @@ const importStudent = () => {
     if (reason === 'clickaway') {
       return
     }
-
     setOpen(false)
   }
 
+  const handleSave = () => {
+    if(state.length){
+      const arrayState = state.map(e => modelStudent(e))
+      const student = db.ref('estudantes')
+      for(let i = 0; i < arrayState.length; i++) {
+        student.child(arrayState[i].matricula).update(arrayState[i])
+      }
+      setOpen(true)
+    }
+    else {
+      console.log('Não pode salvar, pois state está vazio')
+    }
+  }
 
   return (
     <Layout 
@@ -32,17 +50,7 @@ const importStudent = () => {
             onChange = { e => {
               return readFile(e.target.files[0], setState) 
             }}
-            onClickSave = { () => {
-              if(state.length){
-                const estudantes = db.ref('estudantes')
-                estudantes.set(state.map(e => modelStudent(e)))
-                setOpen(true)
-              }
-              else {
-                console.log('Não pode salvar, pois state está vazio')
-              }
-              
-            }}
+            onClickSave = {handleSave}
           />
           <div className={classes.reactJSON}>
             {
@@ -55,6 +63,11 @@ const importStudent = () => {
               /> : undefined
             }
           </div>
+          <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity="success">
+              Salvou com sucesso!
+            </Alert>
+          </Snackbar>          
         </>
       }
     />

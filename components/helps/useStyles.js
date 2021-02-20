@@ -1,7 +1,7 @@
 'use strict'
 
 import { makeStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
+import { green } from '@material-ui/core/colors/green';
 
 const drawerWidth = 240;
 
@@ -96,6 +96,9 @@ const useStyles = makeStyles((theme) => ({
   },
   tableContainer: {
     width: '100%'
+  },
+  tableInner: {
+    marginTop: '40px'
   },
   reactJSON: {
     paddingTop: '80px'
