@@ -30,3 +30,7 @@ export const modelDisciplinas = (date) => {
     mediaFinal: date.mediaFinal || 0
   }
 }
+
+export const modelTesteCognitivo = (date) => {
+  
+}
