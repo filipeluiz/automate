@@ -1,5 +1,7 @@
 'use strict'
 
+import { half, courseCode, questions } from '../helps/dateConvert'
+
 export const modelStudent = (date) => {
   return {
     matricula: date.matricula || '',
@@ -31,6 +33,16 @@ export const modelDisciplinas = (date) => {
   }
 }
 
-export const modelTesteCognitivo = (date) => {
-  
+export const modelTesteCognitivo = (stateStudent, dateFirebase) => {
+  // return {
+  //   Semestre: half(stateStudent.Completo),
+  //   Codigo: courseCode(stateStudent['Instituição']),
+  //   Disciplina: 
+  //   Turma:
+  //   Matricula:
+  //   Nome: 
+  //   Nota: 
+  //   Questoes: 
+  //   NotaQuestao: 
+  // }
 }

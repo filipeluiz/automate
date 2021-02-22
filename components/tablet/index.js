@@ -9,22 +9,21 @@ import { db } from '../helps/firebase'
 
 const Tablet = () => {
   const [state, setState] = useState()
+  const [dateStudent, setStudent] = useState()
   const classes = useStyles()
+  const estudantes = db.ref('estudantes')
 
-  const date = (ano,semestre,discipline) => {
-    let dates
-    db.ref('estudantes').orderByChild(`anoLetivo/${ano}/${semestre}/${discipline}/codigo`).equalTo(discipline).once('value').then(snapshot => {
-      const obj = snapshot.val()
-      dates = Object.keys(obj).map(chave => obj[chave])
-    })
-    return dates
-  }
-
+  estudantes.once('value').then(snapshot => {
+    const obj = snapshot.val()
+    setStudent(Object.keys(obj).map(chave => obj[chave]))
+  })
+ 
   return (
     <div className={classes.tableContainer}>
       <ImportFile 
         onChange = {(e) => readFile(e.target.files[0], setState)} 
-        onClick = {() => console.log(state)}
+        onClick = {() => console.log(dateStudent)}
+        onClickSave = {() => console.log(state)}
       />
       <Table />
     </div>

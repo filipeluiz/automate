@@ -5,10 +5,10 @@ import MaterialTable from 'material-table'
 import tableIcons from './tableIcon'
 import useStyles from '../helps/useStyles' 
 
-const Table = () => {
+const Table = (date) => {
   const [state, setState] = useState({
     fileName: '',
-    data: [],
+    data: {date},
     isLoading: false
   })
 

@@ -1,6 +1,6 @@
 'use strict'
 
-const halfConvert = (date) => {
+export const half = (date) => {
   let dia, mes, ano
 
   const regex = new RegExp(/\//gm)
@@ -72,6 +72,59 @@ const halfConvert = (date) => {
     const anoLetivo = year + '.2'
 		return parseFloat(anoLetivo)
 	}
+} 
+
+export const questions = (date) => {
+  const question = Object.keys(date).map(key => {
+    const regex = new RegExp(/^Q.\s+\d+\s+\/\d+,\d+/gm)
+    if(regex.test(key)){
+      return {
+          [key]: parseFloat(date[key].replace(',','.')).toFixed(2)
+      }
+    }
+  })
+
+  const result = question.filter(e => {
+    if(e != undefined){
+      return {
+        e
+      }
+    }
+  })
+
+  return result
 }
 
-export default halfConvert
+export const courseCode = (strings) => {
+  if(strings == undefined) {
+    return 'sem curso'
+  }
+
+  const course = strings.toUpperCase()
+  let code = 'sem curso'  
+
+  switch(course) {
+    case 'MEDICINA':
+      code = 1
+      break
+    case 'ENFERMAGEM':
+      code = 2
+      break
+    case 'FARMÁCIA':
+      code = 5
+      break
+    case 'FARMACIA':
+      code = 5
+      break
+    case 'FISIOTERAPIA':
+      code = 6
+      break
+    case 'PSICOLOGIA':
+      code = 10
+      break
+    case 'ODONTOLOGIA':
+      code = 23
+      break
+  }
+  return code  
+}
