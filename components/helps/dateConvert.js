@@ -78,21 +78,25 @@ export const questions = (date) => {
   const question = Object.keys(date).map(key => {
     const regex = new RegExp(/^Q.\s+\d+\s+\/\d+,\d+/gm)
     if(regex.test(key)){
-      return {
-          [key]: parseFloat(date[key].replace(',','.')).toFixed(2)
-      }
+      return date[key].replace(',','.')
     }
   })
 
   const result = question.filter(e => {
     if(e != undefined){
-      return {
-        e
-      }
+      return parseFloat(e).toFixed(2)
     }
   })
 
   return result
+}
+
+export const calculeGrade = (question) => {
+  let sum = 0
+  for(let i = 0; i < question.length; i++){
+    sum += parseFloat(question[i])
+  }
+  return sum.toFixed(2)
 }
 
 export const courseCode = (strings) => {

@@ -1,6 +1,7 @@
 'use strict'
 
-import { half, courseCode, questions } from '../helps/dateConvert'
+import { half, courseCode, questions, calculeGrade } from '../helps/dateConvert'
+import { fetchName, fetchRegistration, fetchClass } from '../helps/fetchDate'
 
 export const modelStudent = (date) => {
   return {
@@ -33,16 +34,15 @@ export const modelDisciplinas = (date) => {
   }
 }
 
-export const modelTesteCognitivo = (stateStudent, dateFirebase) => {
-  // return {
-  //   Semestre: half(stateStudent.Completo),
-  //   Codigo: courseCode(stateStudent['Instituição']),
-  //   Disciplina: 
-  //   Turma:
-  //   Matricula:
-  //   Nome: 
-  //   Nota: 
-  //   Questoes: 
-  //   NotaQuestao: 
-  // }
+export const modelTesteCognitivo = (discipline, objStudent, dateFirebase) => {
+  return {
+    Semestre: half(objStudent.Completo),
+    Codigo: courseCode(objStudent['Instituição']),
+    Disciplina: discipline,
+    Turma: fetchClass(`${objStudent.Nome} ${objStudent.Sobrenome}`, dateFirebase, discipline),
+    Matricula: fetchRegistration(`${objStudent.Nome} ${objStudent.Sobrenome}`, dateFirebase),
+    Nome: fetchName(`${objStudent.Nome} ${objStudent.Sobrenome}`, dateFirebase),
+    Nota: calculeGrade(questions(objStudent))
+    // Questoes: questions(objStudent)
+  }
 }

@@ -1,7 +1,7 @@
 'use strict'
 
 import { makeStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors/green';
+import { green } from '@material-ui/core/colors';
 
 const drawerWidth = 240;
 
@@ -102,6 +102,12 @@ const useStyles = makeStyles((theme) => ({
   },
   reactJSON: {
     paddingTop: '80px'
+  },
+  buttonClassname: {
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },    
   }
 }));
 

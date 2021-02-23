@@ -2,13 +2,12 @@
 
 import React from 'react'
 import Fab from '@material-ui/core/Fab'
-import clsx from 'clsx'
 import ArchiveIcon from '@material-ui/icons/Archive'
-import EditIcon from '@material-ui/icons/Edit';
-import SaveIcon from '@material-ui/icons/Save';
+import PostAddIcon from '@material-ui/icons/PostAdd'
+import EditIcon from '@material-ui/icons/Edit'
 import useStyles from './helps/useStyles'
 
-const ImportFile = ({onChange, onClick, onClickSave}) => {
+const ImportFile = ({onChange, onClick, onClickEdit, Sucess, Edit}) => {
   const classes = useStyles()
 
   return (
@@ -26,16 +25,20 @@ const ImportFile = ({onChange, onClick, onClickSave}) => {
           <ArchiveIcon />       
         </Fab>      
       </label> : undefined}
-      {onClick? <label htmlFor="edit">
-        <Fab onClick={onClick} size="small" color="secondary" aria-label="edit">
-          <EditIcon />
-        </Fab>          
-      </label> : undefined}
-      {onClickSave? <label htmlFor="save">
-        <Fab onClick={onClickSave} size="small" aria-label="save">
-          <SaveIcon />
-        </Fab>          
-      </label> : undefined}      
+      {
+      Sucess ? <label htmlFor="edit">
+          <Fab className={classes.buttonClassname} onClick={onClick} size="small" aria-label="edit">
+            <PostAddIcon />
+          </Fab>          
+        </label> : undefined
+      }
+      {
+        Edit ? <label htmlFor="save">
+          <Fab onClick={onClickEdit} size="small" color="secondary" aria-label="save">
+            <EditIcon />
+          </Fab>          
+        </label> : undefined
+      }      
 
     </div>    
   ) 

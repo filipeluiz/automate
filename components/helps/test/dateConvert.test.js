@@ -2,7 +2,7 @@
 
 import { expect } from 'chai'
 import deepFreeze from 'deep-freeze'
-import { half, courseCode, questions } from '../dateConvert'
+import { half, courseCode, questions, calculeGrade } from '../dateConvert'
 
 
 describe('half test:', () => {
@@ -203,18 +203,7 @@ describe('questions test:', () => {
       'Sobrenome': "Julia Bispo Justino",
       'Tempo utilizado': "23 minutos 3 segundos",  
     })
-    const after = deepFreeze([
-      {'Q. 1 /1,00': '1.00'},
-      {'Q. 2 /1,00': '1.00'},
-      {'Q. 3 /1,00': '1.00'},
-      {'Q. 4 /1,00': '1.00'},
-      {'Q. 5 /1,00': '1.00'},
-      {'Q. 6 /1,00': '1.00'},
-      {'Q. 7 /1,00': '1.00'},
-      {'Q. 8 /1,00': '1.00'},
-      {'Q. 9 /1,00': '1.00'},
-      {'Q. 10 /1,00': '0.00'},
-    ])
+    const after = deepFreeze(['1.00','1.00','1.00','1.00','1.00','1.00','1.00','1.00','1.00','0.00'])
   
     expect(questions(before)).to.be.deep.equal(after)
   })
@@ -237,14 +226,44 @@ describe('questions test:', () => {
       'Sobrenome': "Julia Bispo Justino",
       'Tempo utilizado': "23 minutos 3 segundos",  
     })
-    const after = deepFreeze([
-      {'Q. 1 /1,00': '1.00'},
-      {'Q. 2 /1,00': '1.00'},
-      {'Q. 3 /1,00': '1.00'},
-      {'Q. 4 /1,00': '1.00'},
-      {'Q. 5 /1,00': '1.00'}
-    ])
+    const after = deepFreeze(['1.00','1.00','1.00','1.00','1.00'])
   
     expect(questions(before)).to.be.deep.equal(after)
   })
+})
+
+describe('calculeGrade test:', () => {
+  it('Should return a be function', () => {
+    expect(calculeGrade).to.be.a('function')
+  })
+  
+  it('Should return 9.00', () => {
+    const before = deepFreeze(['1.00','1.00','1.00','1.00','1.00','1.00','1.00','1.00','1.00','0.00'])
+    const after = '9.00'
+    expect(calculeGrade(before)).equal(after)
+  })
+  
+  it('Should return 9.00', () => {
+    const before = deepFreeze(['0.50','0.50','0.50','0.50','0.50','0.50','0.50','0.50','0.00','0.50','0.50','0.50','0.50','0.00','0.00','0.50','0.50','0.50','0.50','0.50',])
+    const after = '8.50'
+    expect(calculeGrade(before)).equal(after)
+  })
+  
+  it('Should return 7.86', () => {
+    const before = deepFreeze(['0.50','0.50','0.50','0.50','0.50','0.50','0.50','0.50','0.00','0.50','0.50','0.50','0.50','0.50','0.06','0.50','0.80','0.00','0.00','0.00',])
+    const after = '7.86'
+    expect(calculeGrade(before)).equal(after)
+  })
+  
+  it('Should return 9.29', () => {
+    const before = deepFreeze(['2.00', '1.86', '1.43', '2.00', '2.00'])
+    const after = '9.29'
+    expect(calculeGrade(before)).equal(after)
+  })
+  
+  it('params undefined should return 0', () => {
+    const before = deepFreeze([])
+    const after = '0.00'
+    expect(calculeGrade(before)).equal(after)
+  })  
 })
