@@ -2,6 +2,7 @@
 
 import firebase from 'firebase/app'
 import 'firebase/database'
+import 'firebase/auth'
 
 const config = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -16,6 +17,9 @@ const config = {
 
 !firebase.apps.length ? firebase.initializeApp(config) : firebase.app()
 
+const firebaseClient = () => firebase.app()
+const authFirebase = firebase.auth()
 const db = firebase.database()
 
-export { db }
+
+export { db, firebaseClient, authFirebase }

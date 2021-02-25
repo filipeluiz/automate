@@ -8,7 +8,7 @@ import tableIcons from './tableIcon'
 import useStyles from '../helps/useStyles'
 import downloadCsv from '../helps/downloadCSV'
 import { modelTesteCognitivo } from '../modelDate'
-import { db } from '../helps/firebase'
+import { db } from '../../server/firebase'
 
 const Tablet = () => {
   const [state, setState] = useState()
@@ -21,14 +21,17 @@ const Tablet = () => {
   const estudantes = db.ref('estudantes')
 
   useEffect(() => {
-    async function fetchStudent() {
-      await estudantes.once('value').then(snapshot => {
+    if(!localStorage.getItem('dadosFPS')) {
+      estudantes.once('value').then(snapshot => {
         const obj = snapshot.val()
-        setDateFirebase(Object.keys(obj).map(chave => obj[chave]))
+        const dates = Object.keys(obj).map(chave => obj[chave])
+        setDateFirebase(dates)
+        localStorage.setItem('dadosFPS', JSON.stringify(dates))
       })
     }
-
-    fetchStudent()
+    else {
+      setDateFirebase(JSON.parse(localStorage.getItem('dadosFPS')))
+    }
   }, [])
  
   return (

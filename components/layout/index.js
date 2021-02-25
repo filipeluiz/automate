@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import clsx from 'clsx'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Drawer from '@material-ui/core/Drawer'
@@ -9,28 +9,27 @@ import List from '@material-ui/core/List'
 import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
-import Badge from '@material-ui/core/Badge'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import NotificationsIcon from '@material-ui/icons/Notifications'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import { mainListItems, secondaryListItems } from './listItems'
 import Copyright from './Copyright'
 import useStyles from '../helps/useStyles'
+import { authFirebase, firebaseClient } from '../../server/firebase'
 
 const Layout = ({titleHead, Contents}) => {
+  const [open, setOpen] = useState(true)
+  const [anchorEl, setAnchorEl] = useState(null);
   const classes = useStyles()
-  const [open, setOpen] = React.useState(true)
-  const handleDrawerOpen = () => {
-    setOpen(true)
-  };
-  const handleDrawerClose = () => {
-    setOpen(false)
-  };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
-
+  firebaseClient()
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -40,7 +39,7 @@ const Layout = ({titleHead, Contents}) => {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={() => setOpen(true)}
             className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
           >
             <MenuIcon />
@@ -48,11 +47,26 @@ const Layout = ({titleHead, Contents}) => {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             {titleHead}
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
+          <div>
+            <Button aria-controls="simple-menu" aria-haspopup="true" onClick={event => setAnchorEl(event.currentTarget)}>
+              <Avatar></Avatar>
+            </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={() => setAnchorEl(null)}
+            >
+              <MenuItem onClick={async () => {
+                await authFirebase.signOut()
+                window.location.href = "/login"
+              }}>
+                Sair
+              </MenuItem>
+            </Menu>          
+          </div>
+
         </Toolbar>
       </AppBar>
       <Drawer
@@ -63,7 +77,7 @@ const Layout = ({titleHead, Contents}) => {
         open={open}
       >
         <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={() => setOpen(false)}>
             <ChevronLeftIcon />
           </IconButton>
         </div>

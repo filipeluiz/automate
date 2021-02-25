@@ -4,10 +4,10 @@ import React from 'react'
 import Fab from '@material-ui/core/Fab'
 import ArchiveIcon from '@material-ui/icons/Archive'
 import PostAddIcon from '@material-ui/icons/PostAdd'
-import EditIcon from '@material-ui/icons/Edit'
+import SaveIcon from '@material-ui/icons/Save'
 import useStyles from './helps/useStyles'
 
-const ImportFile = ({onChange, onClick, onClickEdit, Sucess, Edit}) => {
+const ImportFile = ({onChange, onClick, onClickSave, Sucess}) => {
   const classes = useStyles()
 
   return (
@@ -33,9 +33,9 @@ const ImportFile = ({onChange, onClick, onClickEdit, Sucess, Edit}) => {
         </label> : undefined
       }
       {
-        Edit ? <label htmlFor="save">
-          <Fab onClick={onClickEdit} size="small" color="secondary" aria-label="save">
-            <EditIcon />
+        onClickSave ? <label htmlFor="save">
+          <Fab onClick={onClickSave} size="small" color="secondary" aria-label="save">
+            <SaveIcon />
           </Fab>          
         </label> : undefined
       }      

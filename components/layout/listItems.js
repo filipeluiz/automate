@@ -11,7 +11,7 @@ import AccountTreeIcon from '@material-ui/icons/AccountTree';
 
 export const mainListItems = (
   <div>
-    <Link href="/dashboard">
+    <Link href="/">
       <ListItem button>
         <ListItemIcon>
           <DashboardIcon />
