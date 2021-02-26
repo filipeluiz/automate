@@ -126,8 +126,20 @@ export const courseCode = (strings) => {
     case 'PSICOLOGIA':
       code = 10
       break
-    case 'ODONTOLOGIA':
+    case 'NUTRIÇÃO':
       code = 23
+      break
+    case 'NUTRICÃO':
+      code = 23
+      break
+    case 'NUTRICAO':
+      code = 23
+      break
+    case 'NUTRIÇAO':
+      code = 23
+      break                  
+    case 'ODONTOLOGIA':
+      code = 13
       break
   }
   return code  

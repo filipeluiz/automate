@@ -28,7 +28,7 @@ const Login = () => {
       <div className={classes.paperLogin}>
           <Image 
             src='/logomarca.png' 
-            alt='logomarca Automate' 
+            alt='logomarca automate' 
             width={232}
             height={58}
           />

@@ -161,11 +161,36 @@ describe('courseCode test:', () => {
     expect(courseCode(before)).equal(after)
   })
   
-  it('Odontologia should return 23', () => {
+  it('Odontologia should return 13', () => {
     const before = 'Odontologia'
+    const after = 13
+    expect(courseCode(before)).equal(after)
+  })
+
+  it('Nutrição should return 23', () => {
+    const before = 'Nutrição'
     const after = 23
     expect(courseCode(before)).equal(after)
-  })  
+  })
+  
+  it('Nutricão should return 23', () => {
+    const before = 'Nutricão'
+    const after = 23
+    expect(courseCode(before)).equal(after)
+  })
+
+  it('Nutricao should return 23', () => {
+    const before = 'Nutricao'
+    const after = 23
+    expect(courseCode(before)).equal(after)
+  })
+
+  it('Nutriçao should return 23', () => {
+    const before = 'Nutriçao'
+    const after = 23
+    expect(courseCode(before)).equal(after)
+  })   
+
 })
 
 describe('questions test:', () => {
@@ -243,7 +268,7 @@ describe('calculeGrade test:', () => {
     expect(calculeGrade(before)).equal(after)
   })
   
-  it('Should return 9.00', () => {
+  it('Should return 8.50', () => {
     const before = deepFreeze(['0.50','0.50','0.50','0.50','0.50','0.50','0.50','0.50','0.00','0.50','0.50','0.50','0.50','0.00','0.00','0.50','0.50','0.50','0.50','0.50',])
     const after = '8.50'
     expect(calculeGrade(before)).equal(after)
@@ -261,7 +286,7 @@ describe('calculeGrade test:', () => {
     expect(calculeGrade(before)).equal(after)
   })
   
-  it('params undefined should return 0', () => {
+  it('params undefined should return 0.00', () => {
     const before = deepFreeze([])
     const after = '0.00'
     expect(calculeGrade(before)).equal(after)
