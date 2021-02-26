@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "next start",    
     "dev": "next dev",
-    "build": "next build && next export",
-    "export": "next export -o docs",
-    "test": "jest --watch --coverage",
-    "start": "next start"
+    "build": "next build",
+    "test": "jest --watch --coverage"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
