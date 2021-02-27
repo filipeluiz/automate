@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     return authFirebase.onIdTokenChanged(async(user) => {
       console.log("auth changed")
-      console.log(user)
 
       if(!user) {
         setUser(null)
