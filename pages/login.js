@@ -70,6 +70,7 @@ const Login = () => {
             onClick={async () => {
               await authFirebase.signInWithEmailAndPassword(email,pass)
               .then(function() {
+                console.log('entrou location href')
                 window.location.href = '/'
               })
               .catch(function (error) {
