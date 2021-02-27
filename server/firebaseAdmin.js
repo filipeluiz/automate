@@ -24,7 +24,7 @@ export const verifyIdToken = (token) => {
   return admin
   .auth()
   .verifyIdToken(token)
-  .catch(error => {
+  .catch((error) => {
     throw error
   })  
 }
