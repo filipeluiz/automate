@@ -51,6 +51,7 @@ export async function getServerSideProps(context) {
     }
   }
   catch(err) {
+    console.log('Entrou catch:', err )
     context.res.writeHead(302, {location: "/login"})
     context.res.end()
     return { props: [] }
