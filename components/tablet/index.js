@@ -43,7 +43,7 @@ const Tablet = () => {
           setSucess(true)
         }} 
         onClick = {() => {
-          setStudentState(state.map(e => modelTesteCognitivo(fileName.match(/^\w{5}-\d{2}/g)[0],e,dateFirebase)))
+          setStudentState(state.map(e => modelTesteCognitivo(fileName.match(/^\w+-\d+/g)[0],e,dateFirebase)))
           setSucess(false)
         }}
         Sucess={sucess}
@@ -62,10 +62,10 @@ const Tablet = () => {
             { title: 'Nota', field: 'Nota', type: 'numeric', align: 'center', cellStyle: {width: 20} }
           ]}
           data={stateStudent}
-          title={stateStudent ?  fileName.match(/^\w{5}-\d{2}\s-\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*/gm).toString() : '' }
+          title={stateStudent ?  fileName.match(/^\w+-\d+\s-\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w*/gm).toString() : '' }
           options={{pageSize: 15, pageSizeOptions: [15,30,50,75,85], exportButton: true, exportDelimiter: ';', sorting: true, draggable: false,
             exportCsv: (columns, data) => {
-              const headerRow = ['semestre', 'cod_turma', 'cod_disciplina', 'cod_turma', 'matricula', 'nome']             
+              const headerRow = ['Periodo', 'Cod_Curso', 'Cod_Disciplina', 'Cod_Turma', 'Matricula', 'Nome', 'Nota']             
 
               const dataRows = data.map(({ tableData: undefined, ...row }) => Object.values(row));
 

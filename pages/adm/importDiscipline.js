@@ -47,7 +47,7 @@ const importDiscipline = ({session}) => {
                 if(state.length){
                   const arrayState = state
                   for(let i = 0; i < arrayState.length; i++) {
-                    db.ref('estudantes').child(arrayState[i].Matricula).child('anoLetivo').child(arrayState[i].Ano).child(arrayState[i].Semestre).child(arrayState[i].Disciplina.match(/^\w{5}-\d{2}/)[0]).update(modelDisciplinas(state[i]))
+                    db.ref('estudantes').child(arrayState[i].matricula).child('anoLetivo').child(arrayState[i].ano).child(arrayState[i].semestre).child(arrayState[i].disciplina.match(/^\w+-\d+/g)[0]).update(modelDisciplinas(state[i]))
                   }
                   setOpen(true)
                 }

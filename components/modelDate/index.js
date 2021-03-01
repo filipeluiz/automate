@@ -15,10 +15,10 @@ export const modelStudent = (date) => {
 
 export const modelDisciplinas = (date) => {
   return {
-    codigo: date.Disciplina.match(/^\w{5}-\d{2}/g)[0] || '',
-    nome: date.Disciplina.match(/\s[A-Za-zà-ù]+/g).join('').trim() || '',
-    turma: date.Turma || '',
-    situacao: date.Situacao || '',
+    codigo: date.disciplina.match(/^\w+-\d+/g)[0] || '',
+    nome: date.disciplina.match(/\s[A-Za-zà-ù]+/g).join('').trim() || '',
+    turma: date.turma || '',
+    situacao: date.situacao || '',
     AC1SP1: date.AC1SP1 || 0,
     AC1DP1: date.AC1DP1 || 0,
     MT1: date.MT1 || 0,
