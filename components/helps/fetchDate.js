@@ -39,10 +39,10 @@ export const fetchClass = (name, dateFirebase, discipline) => {
   for(let i = 0; i < dateFirebase.length; i++) {
     const find = dateFirebase[i].nome.localeCompare(name, 'pt', { sensitivity: 'base' })
     if(!find) {
-      if(dateFirebase[i].anoLetivo[2020][2][discipline] == undefined){
+      if(dateFirebase[i].anoLetivo[2021][1][discipline] == undefined){
         break
       }
-      classes = dateFirebase[i].anoLetivo[2020][2][discipline].turma
+      classes = dateFirebase[i].anoLetivo[2021][1][discipline].turma
     }
   }
 
