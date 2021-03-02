@@ -15,7 +15,7 @@ export const half = (date) => {
     ano = parseInt(date.match(/\d{4}/gm)[0])
   }
   else {
-    dia = parseInt(date.match(/^\d{2}/gm)[0]) 
+    dia = parseInt(date.match(/^\d+/gm)[0]) 
     mes = date.match(/[A-Za-zç]+/gm)[0].toUpperCase()
     ano = parseInt(date.match(/\d{4}/gm)[0])
 
