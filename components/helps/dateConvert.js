@@ -94,7 +94,9 @@ export const questions = (date) => {
 export const calculeGrade = (question) => {
   let sum = 0
   for(let i = 0; i < question.length; i++){
-    sum += parseFloat(question[i])
+    if(!isNaN(parseFloat(question[i]))) {
+      sum += parseFloat(question[i])
+    }
   }
   return sum.toFixed(2)
 }

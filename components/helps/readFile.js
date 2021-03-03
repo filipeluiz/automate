@@ -1,6 +1,6 @@
 'use strict'
 
-import XLSX from 'xlsx'
+import XLSX, { read } from 'xlsx'
 
 const readFile = (file, setState) => {
   if(file != undefined){
@@ -15,6 +15,7 @@ const readFile = (file, setState) => {
     };
     if(rABS) { 
       reader.readAsBinaryString(file)
+      
     }
     else {
       reader.readAsArrayBuffer(file)
