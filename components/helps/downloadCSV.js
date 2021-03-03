@@ -3,7 +3,7 @@
 const downloadCSV = (data, fileName) => {
   const finalFileName = fileName.endsWith(".csv") ? fileName : `${fileName}.csv`
   const a = document.createElement("a")
-  a.href = URL.createObjectURL(new Blob(['\ufeff' + data], { type: "text/csv;charset=UTF-8" }))
+  a.href = URL.createObjectURL(new Blob([data], { type: "text/csv;charset=utf-8,%EF%BB%BF" }))
   a.setAttribute("download", finalFileName)
   document.body.appendChild(a)
   a.click()
