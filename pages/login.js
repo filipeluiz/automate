@@ -10,17 +10,31 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Copyright from '../components/layout/Copyright'
 import useStyles from '../components/helps/useStyles'
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import { firebaseClient, authFirebase } from '../server/firebase'
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 const Login = () => {
-  
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const classes = useStyles()
+  const [open, setOpen] = useState(false)
+  const [msg, setMsg] = useState('')
 
   useEffect(() => {
     firebaseClient()
   }, [])
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setOpen(false)
+  }  
 
   return (
     <Container component="main" maxWidth="xs">
@@ -70,17 +84,33 @@ const Login = () => {
             onClick={async () => {
               await authFirebase.signInWithEmailAndPassword(email,pass)
               .then(function() {
-                console.log('entrou location href')
                 window.location.href = '/'
               })
               .catch(function (error) {
-                console.log('Error de firebase: ' + error)
+                console.log(error.code)
+                if(error.code) {
+                  if(error.code == 'auth/too-many-requests') {
+                    setMsg('O acesso a esta conta foi temporariamente desativado devido a muitas tentativas de login mal sucedidas. Você pode restaurá-lo imediatamente redefinindo sua senha ou pode tentar novamente mais tarde.')
+                  }
+                  if(error.code == 'auth/wrong-password'){
+                    setMsg('A senha é inválida')
+                  } 
+                  if(error.code == 'auth/user-not-found'){
+                    setMsg('O usuário ainda não foi cadastrado ou pode ter sido excluído')
+                  }                  
+                }
+                setOpen(true)
               })
             }}
           >
             entrar
           </Button>
         </form>
+        <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error">
+            {msg}
+          </Alert>
+        </Snackbar>         
       </div>
       <Box mt={8}>
         <Copyright name='Filipe Luiz' href='https://filipeluiz.com.br/' />
