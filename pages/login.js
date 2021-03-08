@@ -87,7 +87,7 @@ const Login = () => {
                 window.location.href = '/'
               })
               .catch(function (error) {
-                console.log(error.code)
+                // console.log(error.code)
                 if(error.code) {
                   if(error.code == 'auth/too-many-requests') {
                     setMsg('O acesso a esta conta foi temporariamente desativado devido a muitas tentativas de login mal sucedidas. Você pode restaurá-lo imediatamente redefinindo sua senha ou pode tentar novamente mais tarde.')
@@ -97,7 +97,10 @@ const Login = () => {
                   } 
                   if(error.code == 'auth/user-not-found'){
                     setMsg('O usuário ainda não foi cadastrado ou pode ter sido excluído')
-                  }                  
+                  }
+                  if(error.code == 'auth/invalid-email') {
+                    setMsg('O endereço de e-mail está formatado incorretamente.')
+                  }            
                 }
                 setOpen(true)
               })
