@@ -6,7 +6,7 @@
     "start": "next start",    
     "dev": "next dev",
     "build": "next build",
-    "test": "jest --watch --coverage"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",

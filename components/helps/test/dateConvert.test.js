@@ -291,4 +291,10 @@ describe('calculeGrade test:', () => {
     const after = '0.00'
     expect(calculeGrade(before)).equal(after)
   })  
+
+  it('params isNaN should return 0.00', () => {
+    const before = deepFreeze(['A'])
+    const after = '0.00'
+    expect(calculeGrade(before)).equal(after)
+  }) 
 })

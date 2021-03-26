@@ -5,9 +5,9 @@ import deepFreeze from 'deep-freeze'
 import { fetchName, fetchRegistration, fetchClass } from '../fetchDate'
 
 describe('fetchName test:', () => {
-  it('Should return be a function', () => {
-    expect(fetchName).to.be.a('function')
-  })
+  it('Should return be a function', () => { 
+    expect(fetchName).to.be.a('function') 
+  }) 
   
   it('Any on params undefined should return "não encontrado"', () => {
     const paramsName = 'André Luís Brito Pimentel de Lira Ferraz Gomes'
@@ -27,8 +27,8 @@ describe('fetchName test:', () => {
     const paramsName = 'Gustavo Costa de Albuquerque Maranhao Neto'
     const paramsDateFirebase = deepFreeze([{
       'anoLetivo': {
-        '2020': {
-          '2': {
+        '2021': {
+          '1': {
             'MED02-14': {
               'AC1': 0,
               'AC1DP1': 0,
@@ -82,8 +82,8 @@ describe('fetchName test:', () => {
     const paramsName = 'Filipe Luiz Rodrigues Correia'
     const paramsDateFirebase = deepFreeze([{
       'anoLetivo': {
-        '2020': {
-          '2': {
+        '2021': {
+          '1': {
             'MED02-14': {
               'AC1': 0,
               'AC1DP1': 0,
@@ -161,8 +161,8 @@ describe('fetchRegistration test:', () => {
     const paramsName = 'Gustavo Costa de Albuquerque Maranhao Neto'
     const paramsDateFirebase = deepFreeze([{
       'anoLetivo': {
-        '2020': {
-          '2': {
+        '2021': {
+          '1': {
             'MED02-14': {
               'AC1': 0,
               'AC1DP1': 0,
@@ -216,8 +216,8 @@ describe('fetchRegistration test:', () => {
     const paramsName = 'Filipe Luiz Rodrigues Correia'
     const paramsDateFirebase = deepFreeze([{
       'anoLetivo': {
-        '2020': {
-          '2': {
+        '2021': {
+          '1': {
             'MED02-14': {
               'AC1': 0,
               'AC1DP1': 0,
@@ -305,8 +305,8 @@ describe('fetchClass test:', () => {
     const paramsName = 'Gustavo Costa de Albuquerque Maranhao Neto'
     const paramsDateFirebase = deepFreeze([{
       'anoLetivo': {
-        '2020': {
-          '2': {
+        '2021': {
+          '1': {
             'MED02-14': {
               'AC1': 0,
               'AC1DP1': 0,
@@ -361,8 +361,8 @@ describe('fetchClass test:', () => {
     const paramsName = 'Gustavo Costa de Albuquerque Maranhao Neto'
     const paramsDateFirebase = deepFreeze([{
       'anoLetivo': {
-        '2020': {
-          '2': {
+        '2021': {
+          '1': {
             'MED02-14': {
               'AC1': 0,
               'AC1DP1': 0,
@@ -417,8 +417,8 @@ describe('fetchClass test:', () => {
     const paramsName = 'Filipe Luiz Rodrigues Correia'
     const paramsDateFirebase = deepFreeze([{
       'anoLetivo': {
-        '2020': {
-          '2': {
+        '2021': {
+          '1': {
             'MED02-14': {
               'AC1': 0,
               'AC1DP1': 0,
