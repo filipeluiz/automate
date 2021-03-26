@@ -5,8 +5,5 @@ cache:
   directories:
   - node_modules 
 
-before_script:
-  - yarn next build
-
 after_success:
   - yarn jest --watch --coverage
