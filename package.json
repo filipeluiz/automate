@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "next start",    
+    "start": "next start",
     "dev": "next dev",
     "build": "next build",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "coveralls": "yarn test && coveralls < coverage/lcov.info"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "babel-jest": "^26.6.3",
     "chai": "^4.3.0",
+    "coveralls": "^3.1.0",
     "deep-freeze": "^0.0.1",
     "jest": "^26.6.3"
   }

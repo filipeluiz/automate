@@ -6,4 +6,4 @@ cache:
   - node_modules 
 
 after_success:
-  - yarn test
+  - yarn coveralls
