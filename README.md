@@ -1,4 +1,4 @@
-<img src="./public/logomarca.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%">
+<p align="center"><img src="./public/logomarca.png"></p>
 
 <p align="center">Automate</p>
 
