@@ -1,4 +1,4 @@
-<img src="./public/logomarca.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%">
+<p align="center"><img src="./public/logomarca.png"></p>
 
 <p align="center">Automate</p>
 
@@ -6,6 +6,8 @@
   <a href="https://travis-ci.com/filipeluiz/automate"><img src="https://travis-ci.com/filipeluiz/automate.svg?branch=main" alt='Travis-ci Status' /></a>
   <a href='https://coveralls.io/github/filipeluiz/automate?branch=main'><img src='https://coveralls.io/repos/github/filipeluiz/automate/badge.svg?branch=main' alt='Coverage Status' /></a>
 </p>
+
+#
 
 <p>
 Este projeto me ajudou a automizar minhas tarefas quando eu trabalhava como Assistente Administrativo em uma faculdade. Ele me fez ter algum tempo livre para que eu pudesse fazer outras coisas. 
@@ -23,21 +25,21 @@ Eram aproximadamente 60 ~ 65 min para 10 planilhas serem prontas para a publica�
 
 ## Problema
 
-###### A planilha desorganizada veio no sistema da empresa:
+A planilha desorganizada veio no sistema da empresa:
 
 <img src="./public/Readme.img/planilha.png">
 
-###### Necessidade de organizar a planilha do modelo padrão para consegue importar as notas no sistema, segue o modelo padrão(tipo .csv) abaixo:
+Necessidade de organizar a planilha do modelo padrão para consegue importar as notas no sistema, segue o modelo padrão(tipo .csv) abaixo:
 
 <img src="./public/Readme.img/ModeloPadrao.png">
 
 ## Uso
 
-###### Automate resolveu esse problema com apenas 1 click
+Automate resolveu esse problema com apenas 1 click
 
 <img src="./public/Readme.img/automateCensorOtimize.gif">
 
-###### Para salvar a planilha que já veio modelo padrão
+Para salvar a planilha que já veio modelo padrão
 
 <img src="./public/Readme.img/csvExport.gif">
 
