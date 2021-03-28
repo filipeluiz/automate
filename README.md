@@ -25,21 +25,21 @@ Eram aproximadamente 60 ~ 65 min para 10 planilhas serem prontas para a publica�
 
 ## Problema
 
-###### A planilha desorganizada veio no sistema da empresa:
+A planilha desorganizada veio no sistema da empresa:
 
 <img src="./public/Readme.img/planilha.png">
 
-###### Necessidade de organizar a planilha do modelo padrão para consegue importar as notas no sistema, segue o modelo padrão(tipo .csv) abaixo:
+Necessidade de organizar a planilha do modelo padrão para consegue importar as notas no sistema, segue o modelo padrão(tipo .csv) abaixo:
 
 <img src="./public/Readme.img/ModeloPadrao.png">
 
 ## Uso
 
-###### Automate resolveu esse problema com apenas 1 click
+Automate resolveu esse problema com apenas 1 click
 
 <img src="./public/Readme.img/automateCensorOtimize.gif">
 
-###### Para salvar a planilha que já veio modelo padrão
+Para salvar a planilha que já veio modelo padrão
 
 <img src="./public/Readme.img/csvExport.gif">
 
