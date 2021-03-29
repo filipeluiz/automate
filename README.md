@@ -20,7 +20,9 @@ Eram aproximadamente 60 ~ 65 min para 10 planilhas serem prontas para a publica√
 
 - NextJs
 - ReactJs
-- NodeJs
+- Material Ui
+- Material Table
+- SheetsJS
 - Firebase
 
 ## Problema
